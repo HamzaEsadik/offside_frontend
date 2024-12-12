@@ -1,8 +1,9 @@
 import React from 'react'
 import useFetch from '../hooks/useFetch'
 
-function NextFixtures() {
-  const { data, isLoading, error } = useFetch('/league/87/nextfixtures/20241205');
+
+function LeagueFixtures() {
+  const { data, isLoading, error } = useFetch('/league/87/fixtures/20241205');
 
   if (isLoading) {
     return <div>Loading data...</div>;
@@ -13,7 +14,8 @@ function NextFixtures() {
   }
 
   return (
-    <ul>
+    <div>
+      <ul>
         {data.map((fixture) => (
           <li key={fixture.id}>
             <p className='text-red-600'>{fixture.id}</p>
@@ -26,7 +28,8 @@ function NextFixtures() {
           </li>
         ))}
       </ul>
+    </div>
   )
 }
 
-export default NextFixtures
+export default LeagueFixtures
