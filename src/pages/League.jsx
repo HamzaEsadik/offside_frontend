@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { lazy } from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
+import LeagueFixtures from '@/components/LeagueFixtures';
 
 const Header = lazy(() => import('../layouts/Header'));
 const Footer = lazy(() => import('../layouts/Footer'));
@@ -9,8 +10,9 @@ const Footer = lazy(() => import('../layouts/Footer'));
 const Assists = lazy(() => import('../components/Assists'));
 const Rating = lazy(() => import('../components/Rating'));
 const Goals = lazy(() => import('../components/Goals'));
-const LeagueNews = lazy(() => import('../components/GlobalNews'));
+const LeagueNews = lazy(() => import('../components/LeagueNews'));
 const MediumTable = lazy(() => import('../components/MediumTable'));
+const FullTable = lazy(() => import('../components/FullTable'));
 const NextFixtures = lazy(() => import('../components/NextFixtures'));
 
 function League() {
@@ -19,11 +21,11 @@ function League() {
   const [activeTab, setActiveTab] = useState('Overview');
 
   if (isLoading) {
-    return <div>loading ...</div>;
+    return <Header/>;
   }
 
   if (error) {
-    return <div>error</div>;
+    return <Header/>;
   }
 
   // Array of tab names to make rendering more DRY
@@ -35,7 +37,7 @@ function League() {
       <section className='px-4 py-12'>
         <div className='flex gap-4'>
           <div className='hidden md:block w-72 shrink-0'>
-            <LeagueNews/>
+            <LeagueNews id={leagueId}/>
           </div>
           <div className='flex-grow flex flex-col gap-4 overflow-hidden'>
             <div className='w-full h-14 md:h-20 rounded-lg bg-card flex items-center px-8'>
@@ -74,19 +76,26 @@ function League() {
               </div>
             )}
             {activeTab === 'Fixtures' && (
-              <div className='bg-card p-4 rounded-lg'>
-                Fixtures Content
-              </div>
+              <>
+                <LeagueFixtures id={leagueId}/>
+              </>
             )}
             {activeTab === 'Table' && (
-              <div className='bg-card p-4 rounded-lg'>
-                Table Content
-              </div>
+              <>
+              <FullTable id={leagueId}/>
+              </>
             )}
             {activeTab === 'Statistics' && (
-              <div className='bg-card p-4 rounded-lg'>
-                Statistics Content
+              <>
+              <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                <Rating id={leagueId}/>
+                <Goals id={leagueId}/>
+                <Assists id={leagueId}/>
               </div>
+              <div className="block md:hidden">
+                <LeagueNews id={leagueId}/>
+              </div>
+              </>
             )}
           </div>
         </div>

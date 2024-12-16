@@ -4,15 +4,45 @@ import { BiUser } from "react-icons/bi";
 
 
 
-function Goals() {
-  const { data, isLoading, error } = useFetch('/league/87/goals');
+function Goals({ id }) {
+  const { data, isLoading, error } = useFetch(`/league/${id}/goals`);
 
   if (isLoading) {
-    return <div>Loading data...</div>;
+    return (
+      <div className='bg-card rounded-lg flex flex-col gap-2 p-4'>
+        <div className='h-6 w-20 bg-cardHeader animate-pulse rounded'></div>
+        <ul className='divide-y divide-cardHeader'>
+          {[1, 2, 3].map((item) => (
+            <li key={item} className='flex h-14 items-center justify-between py-2'>
+              <div className='flex gap-3 items-center'>
+                <div className='w-8 h-4 md:w-12 md:h-4 bg-cardHeader animate-pulse rounded-full'></div>
+                <div className='h-4 w-32 bg-cardHeader animate-pulse rounded'></div>
+              </div>
+              <div className='w-16 h-4 bg-cardHeader animate-pulse rounded-full'></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div className='bg-card rounded-lg flex flex-col gap-2 p-4'>
+        <div className='h-6 w-20 bg-cardHeader animate-pulse rounded'></div>
+        <ul className='divide-y divide-cardHeader'>
+          {[1, 2, 3].map((item) => (
+            <li key={item} className='flex h-14 items-center justify-between py-2'>
+              <div className='flex gap-3 items-center'>
+                <div className='w-8 h-4 md:w-12 md:h-4 bg-cardHeader animate-pulse rounded-full'></div>
+                <div className='h-4 w-32 bg-cardHeader animate-pulse rounded'></div>
+              </div>
+              <div className='w-16 h-4 bg-cardHeader animate-pulse rounded-full'></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
 
   return (

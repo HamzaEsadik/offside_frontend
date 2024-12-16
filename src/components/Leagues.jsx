@@ -1,18 +1,26 @@
 import React, {useState, useMemo, useEffect} from 'react'
 import useFetch from '../hooks/useFetch'
 import { BiCaretDown, BiCaretUp, BiSearch } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
+
 
 export const leagueNamesContext = {
   names: {}
 };
 
 function Leagues() {
+  const navigate = useNavigate();
   const { data, isLoading, error } = useFetch('/leagues');
   const [expandedCountries, setExpandedCountries] = useState([]);
   const [search, setSearch] = useState('');
 
   const handleSearch = (event) => {
     setSearch(event.target.value.toLowerCase());
+  };
+
+  // Handle fixture click
+  const handleLeagueclick = (id) => {
+    navigate(`/league/${id}`);
   };
 
   // Memoized filtered data to optimize performance
@@ -160,10 +168,11 @@ function Leagues() {
                     <li
                       key={league.id}
                       className="flex hover:cursor-pointer hover:bg-hover px-4 py-2 justify-between"
+                      onClick={() => handleLeagueclick(league.id)}
                     >
                       <div className="flex gap-3">
-                        <div>
-                          <img src="countrie_flag" alt="err" />
+                        <div className='w-4'>
+                          
                         </div>
                         <p className="text-xs">{league.name}</p>
                       </div>

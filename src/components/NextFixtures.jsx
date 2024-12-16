@@ -28,11 +28,99 @@ function NextFixtures({ id }) {
   };
 
   if (isLoading) {
-    return <div>Loading data...</div>;
+    return (
+      <>
+      <div className='max-w-full overflow-hidden'>
+        <Carousel
+        opts={{
+        align: "start",
+        loop: false,
+        dragFree: true,
+      }} className='bg-card rounded-lg w-full overflow-x-auto'>
+          <CarouselContent className='flex p-4'>
+            <CarouselItem className="basis-80 flex-shrink-0">
+              <div className='bg-menu h-32 w-full rounded-md p-4 flex gap-4 items-center justify-evenly'>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+                <div className='w-1/5 flex flex-col gap-3 items-center justify-center'>
+                    <div className='w-full h-6 rounded bg-cardHeader animate-pulse'></div>
+                    <div className='w-8 h-2 rounded bg-cardHeader animate-pulse'></div>
+                </div>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="basis-80 flex-shrink-0">
+              <div className='bg-menu h-32 w-full rounded-md p-4 flex gap-4 items-center justify-evenly'>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+                <div className='w-1/5 flex flex-col gap-3 items-center justify-center'>
+                    <div className='w-full h-6 rounded bg-cardHeader animate-pulse'></div>
+                    <div className='w-8 h-2 rounded bg-cardHeader animate-pulse'></div>
+                </div>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="basis-80 flex-shrink-0">
+              <div className='bg-menu h-32 w-full rounded-md p-4 flex gap-4 items-center justify-evenly'>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+                <div className='w-1/5 flex flex-col gap-3 items-center justify-center'>
+                    <div className='w-full h-6 rounded bg-cardHeader animate-pulse'></div>
+                    <div className='w-8 h-2 rounded bg-cardHeader animate-pulse'></div>
+                </div>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+        </Carousel>
+      </div>
+      </>
+    )
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <>
+      <div className='max-w-full overflow-hidden'>
+        <Carousel
+        opts={{
+        align: "start",
+        loop: false,
+        dragFree: true,
+      }} className='bg-card rounded-lg w-full overflow-x-auto'>
+          <CarouselContent className='flex p-4'>
+            <CarouselItem className="basis-80 flex-shrink-0">
+              <div className='bg-menu h-32 w-full rounded-md p-4 flex gap-4 items-center justify-evenly'>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+                <div className='w-1/5 flex flex-col gap-3 items-center justify-center'>
+                    <div className='w-full h-6 rounded bg-cardHeader animate-pulse'></div>
+                    <div className='w-8 h-2 rounded bg-cardHeader animate-pulse'></div>
+                </div>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="basis-80 flex-shrink-0">
+              <div className='bg-menu h-32 w-full rounded-md p-4 flex gap-4 items-center justify-evenly'>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+                <div className='w-1/5 flex flex-col gap-3 items-center justify-center'>
+                    <div className='w-full h-6 rounded bg-cardHeader animate-pulse'></div>
+                    <div className='w-8 h-2 rounded bg-cardHeader animate-pulse'></div>
+                </div>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+              </div>
+            </CarouselItem>
+            <CarouselItem className="basis-80 flex-shrink-0">
+              <div className='bg-menu h-32 w-full rounded-md p-4 flex gap-4 items-center justify-evenly'>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+                <div className='w-1/5 flex flex-col gap-3 items-center justify-center'>
+                    <div className='w-full h-6 rounded bg-cardHeader animate-pulse'></div>
+                    <div className='w-8 h-2 rounded bg-cardHeader animate-pulse'></div>
+                </div>
+                <div className='w-2/5 h-4 rounded bg-cardHeader animate-pulse'></div>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+        </Carousel>
+      </div>
+      </>
+    )
   }
 
   return (

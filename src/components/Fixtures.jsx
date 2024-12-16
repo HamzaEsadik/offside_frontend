@@ -66,6 +66,11 @@ function Fixtures() {
     navigate(`/match/${id}`);
   };
 
+  // Handle fixture click
+  const handleLeagueclick = (id) => {
+    navigate(`/league/${id}`);
+  };
+
   if (isLoading) {
     return (
       <>
@@ -181,7 +186,7 @@ function Fixtures() {
         <li key={league.leagueid}>
           <div className='w-full bg-card rounded-lg flex flex-col overflow-hidden'>
             <div className='px-4 h-14 bg-cardHeader flex gap-3 items-center'>
-              <h4>{leagueNamesContext.names[league.leagueid] || league.leagueid}</h4>
+              <h4 onClick={() => handleLeagueclick(league.leagueid)} className='hover:cursor-pointer'>{leagueNamesContext.names[league.leagueid] || league.leagueid}</h4>
             </div>
             <ul>
               {league.data.map((fixture) => (

@@ -8,8 +8,7 @@ function MatchTeams({ id }) {
     return (
       <div className='w-full bg-card rounded-lg flex flex-col gap-2 overflow-hidden'>
         {/* Header Skeleton */}
-        <div className='w-full h-16 bg-cardHeader flex justify-center items-center'>
-          <div className='w-1/2 h-6 bg-card rounded animate-pulse'></div>
+        <div className='w-full h-10 md:h-16 bg-cardHeader flex justify-center items-center'>
         </div>
         
         {/* Content Skeleton */}
@@ -38,8 +37,7 @@ function MatchTeams({ id }) {
     return (
       <div className='w-full bg-card rounded-lg flex flex-col gap-2 overflow-hidden'>
         {/* Header Skeleton */}
-        <div className='w-full h-16 bg-cardHeader flex justify-center items-center'>
-          <div className='w-1/2 h-6 bg-card rounded animate-pulse'></div>
+        <div className='w-full h-10 md:h-16 bg-cardHeader flex justify-center items-center'>
         </div>
         
         {/* Content Skeleton */}
@@ -82,8 +80,7 @@ function MatchTeams({ id }) {
   return (
     <>
       <div className='w-full bg-card rounded-lg flex flex-col gap-2 overflow-hidden'>
-        <div className='w-full h-16 bg-cardHeader flex justify-center items-center'>
-          <h4>{data.leagueId}</h4>
+        <div className='w-full h-10 md:h-16 bg-cardHeader flex justify-center items-center'>
         </div>
         <div className='w-full h-32 sm:h-48 flex justify-evenly items-center gap-2 md:gap-4'>
           <h4 className='w-2/5 px-4 md:px8 text-md sm:text-lg text-center md:text-2xl'>{data.homeTeam.name}</h4>
