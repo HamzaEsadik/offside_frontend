@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BiChevronLeft, BiChevronRight, BiChevronDown } from "react-icons/bi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format, addDays, subDays, isToday, isTomorrow, isYesterday, parse } from 'date-fns';
-import useFetch from '../hooks/useFetch'
-import { BiCard } from "react-icons/bi"
-import { leagueNamesContext } from './Leagues'
+import useFetch from '../hooks/useFetch';
+import { BiCard } from "react-icons/bi";
+import { leagueNamesContext } from './Leagues';
 
 function Fixtures() {
+  const navigate = useNavigate();
+
   // Initialize state with today's date in yyyyMMdd format
   const [selectedDate, setSelectedDate] = useState(format(new Date(), 'yyyyMMdd'));
  
@@ -56,6 +59,11 @@ function Fixtures() {
     // Assuming time is in format "DD.MM.YYYY HH:MM"
     const [, hours, minutes] = timeString.match(/\s(\d{2}):(\d{2})$/);
     return `${hours}:${minutes}`;
+  };
+
+  // Handle fixture click
+  const handleclick = (id) => {
+    navigate(`/match/${id}`);
   };
 
   if (isLoading) {
@@ -165,14 +173,6 @@ function Fixtures() {
         className='text-s text-drawZ cursor-pointer' 
         onClick={handleNextDay}
       />
-
-      <style jsx global>{`
-        .custom-popper {
-          position: absolute !important;
-          left: 50% !important;
-          transform: translateX(-50%) !important;
-        }
-      `}</style>
     </div>
     <ul className='flex flex-col gap-4'>
     {data
@@ -186,7 +186,7 @@ function Fixtures() {
             <ul>
               {league.data.map((fixture) => (
                 <li key={fixture.id}>
-                  <div className='flex flex-col p-4 hover:bg-hover'>
+                  <div className='flex flex-col p-4 hover:bg-hover hover:cursor-pointer' onClick={() => handleclick(fixture.id)}>
                     <div className='flex justify-between items-center h-8'>
                       <BiCard title={fixture.time} className='text-draw text-s'/>
                       <div className='flex justify-center items-center w-full gap-4'>
@@ -221,7 +221,7 @@ function Fixtures() {
           </div>
         </li>
       ))}
-  </ul>
+    </ul>
 
     </>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import { BiLogoTwitter, BiLogoInstagram, BiLogoFacebook} from "react-icons/bi";
 import { Link } from 'react-router-dom';
+import small_logo from '../assets/images/small_logo.png';
 
 function Footer() {
   return (
@@ -8,7 +9,7 @@ function Footer() {
       <div className="px-4 flex justify-around items-center h-72 flex-col pt-10 pb-0">
         <div className='max-w-[1280px] w-full h-32 flex justify-between'>
           <div className='h-24 flex gap-6 items-center'>
-            <img src="src/assets/images/small_logo.png" alt="OFFSIDE" className='h-full'/>
+            <img src={small_logo} alt="OFFSIDE" className='h-full'/>
             <div>
               <h3 className='text-lg md:text-3xl'>Always in the Action</h3>
               <h3 className='text-lg md:text-3xl'>Live Scores and Exclusive News!</h3>

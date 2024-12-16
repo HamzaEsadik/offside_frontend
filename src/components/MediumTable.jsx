@@ -1,8 +1,8 @@
 import React from 'react'
 import useFetch from '../hooks/useFetch'
 
-function MediumTable() {
-  const { data, isLoading, error } = useFetch('/league/87/table');
+function MediumTable({ id }) {
+  const { data, isLoading, error } = useFetch(`/league/${id}/table`);
 
   if (isLoading) {
     return <div>Loading data...</div>;
@@ -13,18 +13,36 @@ function MediumTable() {
   }
   
   return (
-    <ul>
-      {data.map((team) => (
-        <li key={team.id}>
-          <h3 className='text-red-600'>{team.team_name}</h3>
-          <h3>{team.rank}</h3>
-          <h3>{team.matches}</h3>
-          <h3>{team.points}</h3>
-          <h3>{team.win} / {team.draw} / {team.lose}</h3>
-          <h3>{team.goals}</h3>
-        </li>
-      ))}
-    </ul>
+    <>
+    <div className='bg-card rounded-lg flex flex-col gap-2 p-4'>
+    <table className="table-auto">
+        <thead>
+          <tr className=''>
+            <th>#</th>
+            <th>Team</th>
+            <th className='text-center'>Points</th>
+            <th className='text-center'>Played</th>
+            <th className='text-center'>win</th>
+            <th className='text-center'>draw</th>
+            <th className='text-center'>lose</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((team) => (
+            <tr key={team.rank} className='divide-y divide-cardHeader'>
+            <td>{team.rank}</td>
+            <td>{team.team_name}</td>
+            <td className='text-center'>{team.points}</td>
+            <td className='text-center'>{team.matches}</td>
+            <td className='text-center'>{team.win}</td>
+            <td className='text-center'>{team.draw}</td>
+            <td className='text-center'>{team.lose}</td>
+          </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    </>
   )
 }
 

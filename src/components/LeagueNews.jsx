@@ -1,8 +1,8 @@
 import React from 'react'
 import useFetch from '../hooks/useFetch'
 
-function LeagueNews() {
-  const { data, isLoading, error } = useFetch('/news/87');
+function LeagueNews({ id }) {
+  const { data, isLoading, error } = useFetch(`/news/${id}`);
 
   if (isLoading) {
     return <div>Loading data...</div>;
