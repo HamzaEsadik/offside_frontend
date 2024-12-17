@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiMenu } from "react-icons/bi";
 import logo from '../assets/images/logo.png';
+import { BiSolidSun } from "react-icons/bi";
 
 
 function Header() {
@@ -16,6 +17,10 @@ function Header() {
     navigate(`/`);
   };
 
+  const handleAboutClick = () => {
+    navigate(`/about-us`);
+  };
+
   return (
     <header className="top-0 max-w-[1500px] m-auto bg-transparent z-50">
       <div className="px-4 flex justify-between items-center h-20">
@@ -24,7 +29,9 @@ function Header() {
           <img src={logo} alt="OFFSIDE" className='h-8'/>
         </div>
 
-        {/* Menu Icon */}
+        <div className='flex gap-2'>
+          <BiSolidSun className='text-2xl'/>
+          {/* Menu Icon */}
         <button
           className="text-white focus:outline-none relative"
           onClick={toggleMenu}
@@ -45,7 +52,7 @@ function Header() {
                   </li>
                   <li>
                     <div
-                      onClick={handleLogoClick}
+                      onClick={handleAboutClick}
                       className="block px-4 py-2 text-p text-text text-center hover:bg-cardHeader rounded-sm"
                     >
                       AboutUs
@@ -55,6 +62,7 @@ function Header() {
               </div>
             )}
         </button>
+        </div>
       </div>
     </header>
   )

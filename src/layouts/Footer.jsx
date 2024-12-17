@@ -23,14 +23,13 @@ function Footer() {
         </div>
         <div className='w-full h-10 flex flex-col md:flex-row justify-between md:items-center'>
           <div>
-            <p className='text-xs'>© Copyright 2024 Koora.tv</p>
+            <p className='text-xs'>© Copyright 2024 Offside</p>
           </div>
           <div className='flex gap-3'>
-            <Link to='#' className='text-xs'>About us</Link>
-            <Link to='#' className='text-xs'>Contact</Link>
-            <Link to='#' className='text-xs'>Terms of use</Link>
-            <Link to='#' className='text-xs'>Cookie policy</Link>
-            <Link to='#' className='text-xs'>Privacy policy</Link>
+            <Link to='/about-us' className='text-xs'>About us</Link>
+            <Link to='/terms' className='text-xs'>Terms of use</Link>
+            <Link to='/cookie' className='text-xs'>Cookie policy</Link>
+            <Link to='/privacy' className='text-xs'>Privacy policy</Link>
           </div>
         </div>
       </div>

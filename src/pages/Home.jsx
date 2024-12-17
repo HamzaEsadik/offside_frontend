@@ -3,23 +3,9 @@ import { lazy } from 'react'
 
 const Header = lazy(() => import('../layouts/Header'));
 const Footer = lazy(() => import('../layouts/Footer'));
-
 const Leagues = lazy(() => import('../components/Leagues'));
 const News = lazy(() => import('../components/GlobalNews'));
-// const Calander = lazy(() => import('../components/Calander'));
-// const Assists = lazy(() => import('../components/Assists'));
-// const Goals = lazy(() => import('../components/Goals'));
-// const Rating = lazy(() => import('../components/Rating'));
-// const FullTable = lazy(() => import('../components/FullTable'));
-// const MediumTable = lazy(() => import('../components/MediumTable'));
-// const SmallTable = lazy(() => import('../components/SmallTable'));
-// const LeagueNews = lazy(() => import('../components/LeagueNews'));
 const Fixtures = lazy(() => import('../components/Fixtures'));
-// const LeagueFixtures = lazy(() => import('../components/LeagueFixtures'));
-// const NextFixtures = lazy(() => import('../components/NextFixtures'));
-// const MatchDetails = lazy(() => import('../components/MatchDetails'));
-// const MatchTeams = lazy(() => import('../components/MatchTeams'));
-// const MatchLineups = lazy(() => import('../components/MatchLineups'));
 
 
 function Home() {
@@ -46,21 +32,6 @@ function Home() {
         </div>
       </section>
       <Footer/>
-      {/* <Leagues/> */}
-      {/* <News/> */}
-      {/* <Assists/> */}
-      {/* <Goals/> */}
-      {/* <Rating/> */}
-      {/* <FullTable/> */}
-      {/* <MediumTable/> */}
-      {/* <SmallTable/> */}
-      {/* <LeagueNews/> */}
-      {/* <Fixtures/> */}
-      {/* <LeagueFixtures/> */}
-      {/* <NextFixtures/> */}
-      {/* <MatchDetails/> */}
-      {/* <MatchTeams/> */}
-      {/* <MatchLineups/> */}
     </div>
   )
 }

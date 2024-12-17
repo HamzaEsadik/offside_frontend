@@ -8,15 +8,12 @@ export default {
   theme: {
   	extend: {
   		colors: {
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			backgroud: '#090909',
+  			primary:'#d4a736',
+  			//backgroud: '#090909',
+        backgroud: {
+          DEFAULT: '#090909',
+          dark: '#ffffff',
+        },
         card: '#161819',
   			cardHeader: '#1D1F20',
   			draw: '#6F6F6F',

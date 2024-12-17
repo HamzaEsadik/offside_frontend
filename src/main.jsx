@@ -7,9 +7,10 @@ import router from './services/routes'
 import './index.css'
 
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div></div>}>
        <RouterProvider router={router} />
      </Suspense>
   </StrictMode>,
