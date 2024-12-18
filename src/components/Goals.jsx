@@ -5,6 +5,7 @@ import { BiUser } from "react-icons/bi";
 
 
 function Goals({ id }) {
+  // Fetch the data
   const { data, isLoading, error } = useFetch(`/league/${id}/goals`);
 
   if (isLoading) {

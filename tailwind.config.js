@@ -9,11 +9,7 @@ export default {
   	extend: {
   		colors: {
   			primary:'#d4a736',
-  			//backgroud: '#090909',
-        backgroud: {
-          DEFAULT: '#090909',
-          dark: '#ffffff',
-        },
+  			backgroud: '#090909',
         card: '#161819',
   			cardHeader: '#1D1F20',
   			draw: '#6F6F6F',

@@ -2,6 +2,7 @@ import React from 'react';
 import useFetch from '../hooks/useFetch';
 
 function MatchTeams({ id }) {
+  // Fetch the data
   const { data, isLoading, error } = useFetch(`/match/${id}`);
 
   if (isLoading) {

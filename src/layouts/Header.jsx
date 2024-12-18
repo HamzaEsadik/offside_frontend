@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiMenu } from "react-icons/bi";
 import logo from '../assets/images/logo.png';
-import { BiSolidSun } from "react-icons/bi";
 
 
 function Header() {
@@ -29,9 +28,6 @@ function Header() {
           <img src={logo} alt="OFFSIDE" className='h-8'/>
         </div>
 
-        <div className='flex gap-2'>
-          <BiSolidSun className='text-2xl'/>
-          {/* Menu Icon */}
         <button
           className="text-white focus:outline-none relative"
           onClick={toggleMenu}
@@ -62,7 +58,6 @@ function Header() {
               </div>
             )}
         </button>
-        </div>
       </div>
     </header>
   )

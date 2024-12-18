@@ -14,29 +14,30 @@ function Fixtures() {
   // Initialize state with today's date in yyyyMMdd format
   const [selectedDate, setSelectedDate] = useState(format(new Date(), 'yyyyMMdd'));
  
-  //Fetch the data 
+  // Fetch the data 
   const { data, isLoading, error } = useFetch(`/topLeaguesFixtures/${selectedDate}`);
   
-  // Convert date to yyyyMMdd format when updating state
+  // Convert date to yyyyMMdd format
   const handleDateChange = (date) => {
     setSelectedDate(format(date, 'yyyyMMdd'));
   };
 
-  // Handle date navigation
+  // Handle date navigation prev
   const handlePrevDay = () => {
     const prevDay = subDays(currentDate, 1);
     setSelectedDate(format(prevDay, 'yyyyMMdd'));
   };
 
+  // Handle date navigation prev next
   const handleNextDay = () => {
     const nextDay = addDays(currentDate, 1);
     setSelectedDate(format(nextDay, 'yyyyMMdd'));
   };
 
-  // Convert yyyyMMdd string back to Date object for display and manipulation
+  // Convert yyyyMMdd string back to Date
   const currentDate = parse(selectedDate, 'yyyyMMdd', new Date());
 
-  // Custom date formatting function
+  // Custom date formatting
   const formatDateDisplay = (dateString) => {
     const date = parse(dateString, 'yyyyMMdd', new Date());
     if (isToday(date)) return 'Today';
@@ -54,9 +55,8 @@ function Fixtures() {
     </div>
   );
 
-  // Function to parse time from the fixture
+  // parse time from the fixture
   const parseTime = (timeString) => {
-    // Assuming time is in format "DD.MM.YYYY HH:MM"
     const [, hours, minutes] = timeString.match(/\s(\d{2}):(\d{2})$/);
     return `${hours}:${minutes}`;
   };
@@ -66,7 +66,7 @@ function Fixtures() {
     navigate(`/match/${id}`);
   };
 
-  // Handle fixture click
+  // Handle league click
   const handleLeagueclick = (id) => {
     navigate(`/league/${id}`);
   };

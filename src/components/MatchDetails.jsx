@@ -4,6 +4,7 @@ import { BiCalendarCheck, BiGitCompare, BiMap, BiUser } from "react-icons/bi";
 
 
 function MatchDetails({ id }) {
+  // Fetch the data
   const { data, isLoading, error } = useFetch(`/matchdetails/${id}`);
 
   const formatDate = (dateString) => {
@@ -12,6 +13,7 @@ function MatchDetails({ id }) {
     return date.toLocaleDateString(undefined, options).toUpperCase();
   };
 
+  // Format Time to HH:MM
   const formatTime = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleTimeString(undefined, {

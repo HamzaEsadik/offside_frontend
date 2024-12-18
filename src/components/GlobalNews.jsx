@@ -2,8 +2,10 @@ import React from 'react'
 import useFetch from '../hooks/useFetch'
 
 function GlobalNews() {
+  // Fetch the data
   const { data, isLoading, error } = useFetch('/news/87');
 
+  // Handle news click
   const handleClick = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { lazy } from 'react'
+
 const Header = lazy(() => import('../layouts/Header'));
 const Footer = lazy(() => import('../layouts/Footer'));
 

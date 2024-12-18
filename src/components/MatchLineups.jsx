@@ -3,6 +3,7 @@ import useFetch from '../hooks/useFetch'
 import { BiUser } from "react-icons/bi";
 
 function MatchLineups({ id }) {
+  // Fetch the data
   const { data, isLoading, error } = useFetch(`/lineups/${id}`);
 
   if (isLoading) {

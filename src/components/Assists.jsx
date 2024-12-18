@@ -5,6 +5,7 @@ import { BiUser } from "react-icons/bi";
 
 
 function Assists({ id }) {
+  // Fetch the data
   const { data, isLoading, error } = useFetch(`/league/${id}/assists`);
 
   if (isLoading) {
@@ -46,18 +47,8 @@ function Assists({ id }) {
   }
 
   return (
-    // <ul>
-    //   {data.map((player) => (
-    //     <li key={player.id}>
-    //       <h3 className='font-Parkinsans text-red-600'>{player.name}</h3>
-    //       <h3>{player.teamId}</h3>
-    //       <h3>{player.teamName}</h3>
-    //       <h3>{player.assists}</h3>
-    //     </li>
-    //   ))}
-    // </ul>
     <>
-      <div className='bg-card rounded-lg flex flex-col gap-2 p-4'>
+      <div className='bg-card dark:bg-red-100 rounded-lg flex flex-col gap-2 p-4'>
         <div>
           <h4>Assists</h4>
         </div>

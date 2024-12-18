@@ -2,6 +2,7 @@ import React from 'react'
 import useFetch from '../hooks/useFetch'
 
 function SmallTable({ id }) {
+  // Fetch the data
   const { data, isLoading, error } = useFetch(`/league/${id}/table`);
 
   if (isLoading) {

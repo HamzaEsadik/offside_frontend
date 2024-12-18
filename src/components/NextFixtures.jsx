@@ -1,5 +1,6 @@
-import React from 'react'
-import useFetch from '../hooks/useFetch'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
 import {
   Carousel,
   CarouselContent,
@@ -9,15 +10,25 @@ import {
 } from "@/components/ui/carousel"
 
 function NextFixtures({ id }) {
+  const navigate = useNavigate();
+
   const today = new Date().toISOString().slice(0,10).replace(/-/g, '');
+  // Fetch the data
   const { data, isLoading, error } = useFetch(`/league/${id}/nextfixtures/${today}`);
 
+  // Format date to Mon 25
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { month: 'short', day: 'numeric' };
     return date.toLocaleDateString(undefined, options).toUpperCase();
   };
 
+  // Handle fixture click
+  const handleclick = (id) => {
+    navigate(`/match/${id}`);
+  };
+
+  // Format time HH:MM
   const formatTime = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleTimeString(undefined, {
@@ -135,7 +146,7 @@ function NextFixtures({ id }) {
         <CarouselContent className='flex p-4'>
           {data.map((fixture) => (
             <CarouselItem key={fixture.id} className="basis-80 flex-shrink-0">
-            <div className='bg-menu h-32 w-full rounded-md flex gap-2 items-center justify-evenly'>
+            <div className='bg-menu h-32 w-full rounded-md flex gap-2 items-center justify-evenly cursor-pointer' onClick={() => handleclick(fixture.id)}>
               <h4 className='w-2/5 px-4 md:px8 text-s sm:text-sm text-center'>{fixture.home.name}</h4>
               <div className='w-1/5 flex flex-col items-center justify-center'>
                 {data.finished ? (

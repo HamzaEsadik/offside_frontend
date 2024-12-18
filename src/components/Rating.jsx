@@ -4,6 +4,7 @@ import { BiUser } from "react-icons/bi";
 
 
 function Rating({ id }) {
+  // Fetch the data
   const { data, isLoading, error } = useFetch(`/league/${id}/rating`);
 
   if (isLoading) {

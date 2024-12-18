@@ -10,10 +10,13 @@ export const leagueNamesContext = {
 
 function Leagues() {
   const navigate = useNavigate();
+
+  // Fetch the data
   const { data, isLoading, error } = useFetch('/leagues');
   const [expandedCountries, setExpandedCountries] = useState([]);
   const [search, setSearch] = useState('');
 
+  // Handle live search
   const handleSearch = (event) => {
     setSearch(event.target.value.toLowerCase());
   };
@@ -48,6 +51,7 @@ function Leagues() {
     }, []);
   }, [data, search]);
 
+  // Get leagues names
   useEffect(() => {
     if (data && data.response && data.response.leagues) {
       const namesMap = {};
@@ -70,6 +74,7 @@ function Leagues() {
     }
   }, [search, filteredData]);
 
+  // Handle toggle countries
   const toggleCountry = (countryName) => {
     setExpandedCountries(prev => 
       prev.includes(countryName)
